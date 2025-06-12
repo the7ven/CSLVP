@@ -124,4 +124,63 @@
         // Initialisation su slider
         document.addEventListener('DOMContentLoaded', () => {
             new FurnitureSlider();
-        });   
+        });  
+        
+        
+
+         function toggleFaq(element) {
+            // Remove active class from all FAQ items
+            const allFaqItems = document.querySelectorAll('.faq-item');
+            allFaqItems.forEach(item => {
+                if (item !== element) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            // Toggle active class on clicked item
+            element.classList.toggle('active');
+            
+            // Add smooth animation
+            element.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                element.style.transform = 'scale(1)';
+            }, 150);
+        }
+
+        // Add hover effects and smooth interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('active')) {
+                        this.style.transform = 'translateY(-2px)';
+                    }
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('active')) {
+                        this.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            // Get Started button animation
+            const getStartedBtn = document.querySelector('.get-started-btn');
+            getStartedBtn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+                
+                // You can add your actual functionality here
+                console.log('Get Started clicked!');
+            });
+
+            // Add subtle parallax effect to brand text
+            window.addEventListener('scroll', function() {
+                const brandText = document.querySelector('.brand-text');
+                const scrolled = window.pageYOffset;
+                brandText.style.transform = `translateY(${scrolled * 0.1}px)`;
+            });
+        });
