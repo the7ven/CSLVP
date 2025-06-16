@@ -184,3 +184,43 @@
                 brandText.style.transform = `translateY(${scrolled * 0.1}px)`;
             });
         });
+
+
+
+
+       // Gestion du menu hamburger
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Fermer le menu mobile quand on clique sur un lien
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Fermer le menu mobile quand on redimensionne la fenêtre
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+        // Fermer le menu mobile quand on clique à l'extérieur
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = event.target.closest('nav');
+            const isClickInsideMobileMenu = event.target.closest('.mobile-menu');
+            
+            if (!isClickInsideNav && !isClickInsideMobileMenu) {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
