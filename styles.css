@@ -686,17 +686,15 @@ nav{
 
 
         .slider {
-            max-width: 1200px;
+            max-width: 1600px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 300px 1fr;
-            gap: 40px;
+            gap: 20px;
             align-items: center;
         }
 
-        .content {
-            padding-right: 20px;
-        }
+       
 
         .subtitle {
             color: #8a8a8a;
@@ -975,7 +973,7 @@ nav{
 
 
             .container {
-            max-width: 1200px;
+            max-width: 1600px;
             margin: 0 auto;
             padding: 40px 20px;
         }
